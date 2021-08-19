@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+      
+      <div class="px-4 py-5">
+        <div class="container-fluid">
+          <div class="masonry-wrapper">
+            {% for post in posts %}
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+              <div class="listing-item">
+                <div class="position-relative">
+                  <ul class="list-inline listing-tags m-0">
+                    <li class="list-inline-item"><a class="reset-anchor font-weight-normal text-gray text-small" href="{{post.get_absolute_url}}">{{post.category}}</a></li>
+                  </ul><a class="reset-anchor d-block listing-img-holder" href="{{post.get_absolute_url}}"><img class="img-fluid" src="{{post.image.url}}" alt="" width="280" height="220">
+                    <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                      <svg class="svg-icon text-primary svg-icon-sm ml-2">
+                        <use xlink:href="#arrow-right-1"> </use>
+                      </svg>
+                    </p></a>
+                </div>
+                <div class="py-3"><a class="reset-anchor" href="{{post.get_absolute_url}}">
+                    <h2 class="h5 listing-item-heading">{{ post.title }}</h2></a>
+                  <p class="text-small mb-0 listing-item-description">{{post.description|truncatechars:150|linebreaks }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            <!-- <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="page={{ page.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="page={{ page.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav> -->
+            <!-- <div class="col-lg-4 col-md-6 grid-item mb-4">
+              <div class="listing-item">
+                <div class="position-relative">
+                  <ul class="list-inline listing-tags m-0">
+                    <li class="list-inline-item"><a class="reset-anchor font-weight-normal text-gray text-small" href="detail.html">Creative</a></li>
+                  </ul><a class="reset-anchor d-block listing-img-holder" href="detail/"><img class="img-fluid" src="img/portfolio-2.jpg" alt="">
+                    <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                      <svg class="svg-icon text-primary svg-icon-sm ml-2">
+                        <use xlink:href="#arrow-right-1"> </use>
+                      </svg>
+                    </p></a>
+                </div>
+                <div class="py-3"><a class="reset-anchor" href="detail/">
+                    <h2 class="h5 listing-item-heading">Wimbledon</h2></a>
+                  <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+              <div class="listing-item">
+                <div class="position-relative">
+                  <ul class="list-inline listing-tags m-0">
+                    <li class="list-inline-item"><a class="reset-anchor font-weight-normal text-gray text-small" href="detail.html">Creative</a></li>
+                  </ul><a class="reset-anchor d-block listing-img-holder" href="detail.html"><img class="img-fluid" src="img/portfolio-3.jpg" alt="">
+                    <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                      <svg class="svg-icon text-primary svg-icon-sm ml-2">
+                        <use xlink:href="#arrow-right-1"> </use>
+                      </svg>
+                    </p></a>
+                </div>
+                <div class="py-3"><a class="reset-anchor" href="detail.html">
+                    <h2 class="h5 listing-item-heading">Tour de France</h2></a>
+                  <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+              <div class="listing-item">
+                <div class="position-relative">
+                  <ul class="list-inline listing-tags m-0">
+                    <li class="list-inline-item"><a class="reset-anchor font-weight-normal text-gray text-small" href="detail.html">Creative</a></li>
+                  </ul><a class="reset-anchor d-block listing-img-holder" href="detail.html"><img class="img-fluid" src="img/portfolio-4.jpg" alt="">
+                    <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                      <svg class="svg-icon text-primary svg-icon-sm ml-2">
+                        <use xlink:href="#arrow-right-1"> </use>
+                      </svg>
+                    </p></a>
+                </div>
+                <div class="py-3"><a class="reset-anchor" href="detail.html">
+                    <h2 class="h5 listing-item-heading">Haunted House</h2></a>
+                  <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+              <div class="listing-item">
+                <div class="position-relative">
+                  <ul class="list-inline listing-tags m-0">
+                    <li class="list-inline-item"><a class="reset-anchor font-weight-normal text-gray text-small" href="detail.html">Creative</a></li>
+                  </ul><a class="reset-anchor d-block listing-img-holder" href="detail.html"><img class="img-fluid" src="img/portfolio-5.jpg" alt="">
+                    <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                      <svg class="svg-icon text-primary svg-icon-sm ml-2">
+                        <use xlink:href="#arrow-right-1"> </use>
+                      </svg>
+                    </p></a>
+                </div>
+                <div class="py-3"><a class="reset-anchor" href="detail.html">
+                    <h2 class="h5 listing-item-heading">Best Friends</h2></a>
+                  <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+              <div class="listing-item">
+                <div class="position-relative">
+                  <ul class="list-inline listing-tags m-0">
+                    <li class="list-inline-item"><a class="reset-anchor font-weight-normal text-gray text-small" href="detail.html">Creative</a></li>
+                  </ul><a class="reset-anchor d-block listing-img-holder" href="detail.html"><img class="img-fluid" src="img/portfolio-6.jpg" alt="">
+                    <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                      <svg class="svg-icon text-primary svg-icon-sm ml-2">
+                        <use xlink:href="#arrow-right-1"> </use>
+                      </svg>
+                    </p></a>
+                </div>
+                <div class="py-3"><a class="reset-anchor" href="detail.html">
+                    <h2 class="h5 listing-item-heading">Banana Lady</h2></a>
+                  <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+              <div class="listing-item">
+                <div class="position-relative">
+                  <ul class="list-inline listing-tags m-0">
+                    <li class="list-inline-item"><a class="reset-anchor font-weight-normal text-gray text-small" href="detail.html">Creative</a></li>
+                  </ul><a class="reset-anchor d-block listing-img-holder" href="detail.html"><img class="img-fluid" src="img/portfolio-7.jpg" alt="">
+                    <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                      <svg class="svg-icon text-primary svg-icon-sm ml-2">
+                        <use xlink:href="#arrow-right-1"> </use>
+                      </svg>
+                    </p></a>
+                </div>
+                <div class="py-3"><a class="reset-anchor" href="detail.html">
+                    <h2 class="h5 listing-item-heading">Be cool</h2></a>
+                  <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+              <div class="listing-item">
+                <div class="position-relative">
+                  <ul class="list-inline listing-tags m-0">
+                    <li class="list-inline-item"><a class="reset-anchor font-weight-normal text-gray text-small" href="detail.html">Creative</a></li>
+                  </ul><a class="reset-anchor d-block listing-img-holder" href="detail.html"><img class="img-fluid" src="img/portfolio-8.jpg" alt="">
+                    <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                      <svg class="svg-icon text-primary svg-icon-sm ml-2">
+                        <use xlink:href="#arrow-right-1"> </use>
+                      </svg>
+                    </p></a>
+                </div>
+                <div class="py-3"><a class="reset-anchor" href="detail.html">
+                    <h2 class="h5 listing-item-heading">Spread the Love</h2></a>
+                  <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 grid-item mb-4">
+              <div class="listing-item">
+                <div class="position-relative">
+                  <ul class="list-inline listing-tags m-0">
+                    <li class="list-inline-item"><a class="reset-anchor font-weight-normal text-gray text-small" href="detail.html">Creative</a></li>
+                  </ul><a class="reset-anchor d-block listing-img-holder" href="detail.html"><img class="img-fluid" src="img/portfolio-9.jpg" alt="">
+                    <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                      <svg class="svg-icon text-primary svg-icon-sm ml-2">
+                        <use xlink:href="#arrow-right-1"> </use>
+                      </svg>
+                    </p></a>
+                </div>
+                <div class="py-3"><a class="reset-anchor" href="detail.html">
+                    <h2 class="h5 listing-item-heading">Grounghog Day</h2></a>
+                  <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+{% endblock %}     

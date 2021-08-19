@@ -1,0 +1,28 @@
+{% load static %}
+<div class="sidebar">
+  <div class="sidebar-inner d-flex flex-column">
+    <div class="px-4 py-5"><a href="/"><img src="{% static 'img/logo.svg' %}" alt="" width="90"></a></div>
+    <div class="sidebar-menu-holder flex-grow-1">
+      <ul class="sidebar-menu list-unstyled">
+          {% with url_name=request.resolver_match.url_name %}
+          <li class="mb-2 pb-1">
+            <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-small {% if url_name == 'index' %} active {% endif %}" href="/">Home</a>
+          </li>
+          <li class="mb-2 pb-1">
+            <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-small {% if url_name == 'about' %} active {% endif %}" href="{% url 'portfolio:about' %}">About</a>
+          </li>
+          {% endwith %}
+        </ul>
+      </div>
+      <div class="px-4 py-3">
+        <ul class="list-inline list-social mb-3">
+          <!-- <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li> -->
+          <li class="list-inline-item"><a class="reset-anchor" href="https://twitter.com/Your_Wraith?s=09"><i class="fab fa-twitter"></i></a></li>
+          <li class="list-inline-item"><a class="reset-anchor" href="https://instagram.com/xoft_wraith?utm_medium=copy_link"><i class="fab fa-instagram"></i></a></li>
+          <!-- <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li> -->
+          <!-- <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-dribbble"></i></a></li> -->
+          <li class="list-inline-item"><a class="reset-anchor" href="https://youtube.com/channel/UCCugFjo09bmWmMWsSNsb1WA"><i class="fab fa-youtube mr-2 mb-2 fa-fw"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
